@@ -95,7 +95,7 @@ export default function Home() {
   const isFarmingVisible = activeSection === null || activeSection === 'home'; // Показываем Farming при home или null
 
   return (
-<div className="app">
+    <div className="app" style={{ overflow: 'hidden' }}>
       <style jsx>{`
         * {
           margin: 0;
@@ -117,7 +117,7 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar {
-          width: 5px;
+          width: 5px; /* Ширина скроллбара для Chrome, Safari и Edge */
         }
 
         .app::-webkit-scrollbar-track {
@@ -130,17 +130,17 @@ export default function Home() {
         }
 
         .app {
-          scrollbar-width: thin;
-          scrollbar-color: rgb(29, 28, 31) transparent;
-          background-color: black;
-        }
+          scrollbar-width: thin; /* Для Firefox */
+          scrollbar-color: rgb(29, 28, 31) transparent; /* Цвет скроллбара в Firefox */
+            background-color: black; /* Здесь фон должен оставаться чёрным */
 
+        }
+          
         .farming-container {
           background-color: black;
           margin-top: ${25 * scaleFactor}px;
         }
       `}</style>
-
       <div className="scrollable-content">
         {renderActiveSection()}
       </div>
