@@ -117,7 +117,7 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar {
-          width: 5px; /* Тонкий скроллбар */
+          width: 5px;
         }
 
         .app::-webkit-scrollbar-track {
@@ -125,21 +125,40 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar-thumb {
-          background: rgb(29, 28, 31); /* Цвет для скроллбара */
+          background: rgb(29, 28, 31);
           border-radius: 10px;
         }
 
         .app {
-          scrollbar-width: thin; /* Для Firefox */
-          scrollbar-color: rgb(29, 28, 31) transparent; /* Цвет скроллбара в Firefox */
-          background-color: black; /* Убедимся, что фон чёрный */
+          scrollbar-width: thin;
+          scrollbar-color: rgb(29, 28, 31) transparent;
+          background-color: black;
         }
 
         .farming-container {
           background-color: black;
           margin-top: ${25 * scaleFactor}px;
         }
+        .scrollable-content {
+          scrollbar-width: thin; /* Поддержка Firefox */
+          scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1); /* Firefox */
+        }
+
+        .scrollable-content::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb {
+          background-color: rgba(255, 255, 255, 0.4); /* Цвет скроллбара */
+          border-radius: 10px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-track {
+          background-color: rgba(255, 255, 255, 0.1); /* Цвет фона скроллбара */
+        }
+
       `}</style>
+
       <div className="scrollable-content">
         {renderActiveSection()}
       </div>
@@ -151,4 +170,4 @@ export default function Home() {
       )}
     </div>
   );
-}
+};
