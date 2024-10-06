@@ -1,6 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css'; // Import the CSS for styling
+
 import Farming from './Farming/Farming';
 import Footer from './Footer/Footer';
 import ButtonCard from './ButtonCard/ButtonCard';
@@ -110,28 +113,7 @@ export default function Home() {
           outline: none;
         }
 
-        .scrollable-content {
-          height: calc(100vh - ${isFarmingVisible ? 220 * scaleFactor : 110 * scaleFactor}px);
-          overflow-y: auto;
-          overflow-x: hidden;
-        }
-
-        .app::-webkit-scrollbar {
-          width: 5px;
-        }
-
-        .app::-webkit-scrollbar-track {
-          background: transparent;
-        }
-
-        .app::-webkit-scrollbar-thumb {
-          background: rgb(29, 28, 31);
-          border-radius: 10px;
-        }
-
         .app {
-          scrollbar-width: thin;
-          scrollbar-color: rgb(29, 28, 31) transparent;
           background-color: black;
         }
 
@@ -139,29 +121,19 @@ export default function Home() {
           background-color: black;
           margin-top: ${25 * scaleFactor}px;
         }
-        .scrollable-content {
-          scrollbar-width: thin; /* Поддержка Firefox */
-          scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1); /* Firefox */
-        }
-
-        .scrollable-content::-webkit-scrollbar {
-          width: 8px;
-        }
-
-        .scrollable-content::-webkit-scrollbar-thumb {
-          background-color: rgba(255, 255, 255, 0.4); /* Цвет скроллбара */
-          border-radius: 10px;
-        }
-
-        .scrollable-content::-webkit-scrollbar-track {
-          background-color: rgba(255, 255, 255, 0.1); /* Цвет фона скроллбара */
-        }
-
       `}</style>
 
-      <div className="scrollable-content">
+      <PerfectScrollbar
+        className="scrollable-content"
+        options={{
+          suppressScrollX: true, // Disable horizontal scrolling
+          wheelPropagation: false
+        }}
+        style={{ height: `calc(100vh - ${isFarmingVisible ? 220 * scaleFactor : 110 * scaleFactor}px)` }}
+      >
         {renderActiveSection()}
-      </div>
+      </PerfectScrollbar>
+
       <Footer toggleSection={toggleSection} />
       {isFarmingVisible && (
         <div className="farming-container">
@@ -170,4 +142,4 @@ export default function Home() {
       )}
     </div>
   );
-};
+}
