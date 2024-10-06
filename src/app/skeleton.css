@@ -1,0 +1,90 @@
+.custom-skeleton {
+    background-color: #131214 !important; /* Цвет фона скелета */
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-skeleton-small {
+    background-color: #1F1D21 !important; /* Цвет фона для маленьких скелетов */
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-skeleton::before,
+.custom-skeleton-small::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.0) 0%, rgba(221, 221, 221, 0.1) 30%, rgba(255, 255, 255, 0.0) 60%);
+    animation: wave 1.8s infinite;
+}
+
+@keyframes wave {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+@keyframes react-loading-skeleton {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .react-loading-skeleton {
+    --base-color: #ebebeb00;
+    --highlight-color: #f5f5f500;
+    --animation-duration: 1.5s;
+    --animation-direction: normal;
+    --pseudo-element-display: block; /* Enable animation */
+  
+    background-color: var(--base-color);
+  
+    width: 100%;
+    border-radius: 0.25rem;
+    display: inline-flex;
+    line-height: 1;
+  
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+  }
+  
+  .react-loading-skeleton::after {
+    content: ' ';
+    display: var(--pseudo-element-display);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: var(
+      --custom-highlight-background,
+      linear-gradient(
+        90deg,
+        var(--base-color) 0%,
+        var(--highlight-color) 50%,
+        var(--base-color) 100%
+      )
+    );
+    transform: translateX(-100%);
+  
+    animation-name: react-loading-skeleton;
+    animation-direction: var(--animation-direction);
+    animation-duration: var(--animation-duration);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @media (prefers-reduced-motion) {
+    .react-loading-skeleton {
+      --pseudo-element-display: none; /* Disable animation */
+    }
+  }
+  

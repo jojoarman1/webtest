@@ -1,0 +1,54 @@
+/* Сброс стилей для всех элементов */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Убираем обводку при фокусе */
+html, body, #root {
+  height: 100%;
+  background: black;
+  overflow: hidden; /* Убираем прокрутку у body */
+  outline: none; /* Убираем обводку при фокусе */
+}
+
+/* Стиль для основного контейнера приложения */
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 110px); /* Используем calc для расчета высоты с учетом отступов */
+  overflow-y: auto; /* Включаем прокрутку внутри этого контейнера */
+  overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+}
+
+/* Стиль для контента */
+.content {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+/* Кастомизация скролл-индикатора */
+.app::-webkit-scrollbar {
+  width: 5px; /* Ширина скролл-индикатора */
+}
+
+.app::-webkit-scrollbar-track {
+  background: transparent; /* Цвет фона трека */
+}
+
+.app::-webkit-scrollbar-thumb {
+  background: rgb(29, 28, 31); /* Цвет индикатора */
+  border-radius: 10px; /* Закругление краев */
+}
+
+/* Кроссбраузерная поддержка (для Firefox) */
+.app {
+  scrollbar-width: thin; /* Устанавливаем тонкий скролл в Firefox */
+  scrollbar-color: rgb(29, 28, 31) transparent; /* Цвет скролла и трека */
+  border-radius: 10px; /* Закругление краев */
+}

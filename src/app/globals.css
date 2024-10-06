@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('fonts/PlusJakartaSans-Regular.woff') format('woff2'),
+       url('fonts/PlusJakartaSans-Regular.woff2') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-weight: 700; /* Задаем вес для жирного шрифта */
+  src: url('fonts/PlusJakartaSans-Bold.woff2') format('woff2'),
+       url('fonts/PlusJakartaSans-Bold.woff') format('woff');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400; /* Установите вес шрифта по умолчанию */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+img, svg {
+  user-select: none;       
+}
+
+img {
+  -webkit-user-drag: none;  
+}
