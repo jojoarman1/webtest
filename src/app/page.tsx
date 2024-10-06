@@ -117,7 +117,7 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar {
-          width: 5px; /* Ширина скроллбара для Chrome, Safari и Edge */
+          width: 5px; /* Тонкий скроллбар */
         }
 
         .app::-webkit-scrollbar-track {
@@ -125,17 +125,16 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar-thumb {
-          background: rgb(29, 28, 31);
+          background: rgb(29, 28, 31); /* Цвет для скроллбара */
           border-radius: 10px;
         }
 
         .app {
           scrollbar-width: thin; /* Для Firefox */
           scrollbar-color: rgb(29, 28, 31) transparent; /* Цвет скроллбара в Firefox */
-            background-color: black; /* Здесь фон должен оставаться чёрным */
-
+          background-color: black; /* Убедимся, что фон чёрный */
         }
-          
+
         .farming-container {
           background-color: black;
           margin-top: ${25 * scaleFactor}px;
@@ -152,4 +151,4 @@ export default function Home() {
       )}
     </div>
   );
-};
+}
