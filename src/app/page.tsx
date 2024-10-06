@@ -95,7 +95,7 @@ export default function Home() {
   const isFarmingVisible = activeSection === null || activeSection === 'home'; // Показываем Farming при home или null
 
   return (
-    <div className="app" style={{ overflow: 'hidden' }}>
+<div className="app">
       <style jsx>{`
         * {
           margin: 0;
@@ -117,7 +117,7 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar {
-          width: 2px;
+          width: 5px;
         }
 
         .app::-webkit-scrollbar-track {
