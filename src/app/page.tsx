@@ -117,7 +117,7 @@ export default function Home() {
         }
 
         .app::-webkit-scrollbar {
-          width: 5px;
+          width: 2px;
         }
 
         .app::-webkit-scrollbar-track {
