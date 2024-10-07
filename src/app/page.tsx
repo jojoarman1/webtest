@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import 'react-perfect-scrollbar/dist/css/styles.css'; // Import the CSS for styling
-
+import './scrollbar.css'; // Импорт кастомных стилей
 import Farming from './Farming/Farming';
 import Footer from './Footer/Footer';
 import ButtonCard from './ButtonCard/ButtonCard';
@@ -21,7 +19,7 @@ import Account from './Account/account';
 import Cardholder from './Cardholder/cardholder';
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<string | null>('home'); // Установим начальное значение
+  const [activeSection, setActiveSection] = useState<string | null>('home');
   const [previousSections, setPreviousSections] = useState<string[]>([]);
   const [scaleFactor, setScaleFactor] = useState(1);
 
@@ -50,7 +48,6 @@ export default function Home() {
   }, []);
 
   const toggleSection = (section: string | null) => {
-    console.log("Переключение на раздел:", section); // Отладка
     if (section !== null && activeSection !== null) {
       setPreviousSections((prev) => [...prev, activeSection]);
     }
@@ -63,12 +60,9 @@ export default function Home() {
       setPreviousSections((prev) => prev.slice(0, -1));
       setActiveSection(lastSection);
     } else {
-      console.log("Возврат на Farming"); // Отладка
-      setActiveSection(null); // Возврат на главную страницу
+      setActiveSection(null);
     }
   };
-
-  console.log("Текущий активный раздел:", activeSection);
 
   const renderActiveSection = () => {
     const sections: { [key: string]: JSX.Element } = {
@@ -95,7 +89,7 @@ export default function Home() {
     );
   };
 
-  const isFarmingVisible = activeSection === null || activeSection === 'home'; // Показываем Farming при home или null
+  const isFarmingVisible = activeSection === null || activeSection === 'home';
 
   return (
     <div className="app" style={{ overflow: 'hidden' }}>
@@ -117,23 +111,20 @@ export default function Home() {
           background-color: black;
         }
 
+        .scrollable-content {
+          height: calc(100vh - ${isFarmingVisible ? 220 * scaleFactor : 110 * scaleFactor}px);
+          overflow-y: auto; /* Стандартный скролл */
+        }
+
         .farming-container {
           background-color: black;
           margin-top: ${25 * scaleFactor}px;
         }
       `}</style>
 
-      <PerfectScrollbar
-        className="scrollable-content"
-        options={{
-          suppressScrollX: true, // Disable horizontal scrolling
-          wheelPropagation: false
-        }}
-        style={{ height: `calc(100vh - ${isFarmingVisible ? 220 * scaleFactor : 110 * scaleFactor}px)` }}
-      >
+      <div className="scrollable-content">
         {renderActiveSection()}
-      </PerfectScrollbar>
-
+      </div>
       <Footer toggleSection={toggleSection} />
       {isFarmingVisible && (
         <div className="farming-container">
