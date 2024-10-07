@@ -1,27 +1,30 @@
 .scrollable-content {
     height: calc(100vh - 220px); /* Установите высоту по вашему усмотрению */
     overflow-y: auto; /* Стандартный скролл */
+    border-radius: 10px; /* Радиус для всего скролла */
+    padding-right: 10px; /* Добавьте немного внутреннего отступа справа для скролла */
   }
   
   /* Кастомизация скролла */
   .scrollable-content::-webkit-scrollbar {
-    width: 5px; /* Ширина скролла */
+    width: 5px; /* Ширина скролла 919191  646464*/
   }
   
   .scrollable-content::-webkit-scrollbar-track {
     background: #1C1D26; /* Цвет трека скролла */
+    border-radius: 10px; /* Радиус трека */
   }
   
   .scrollable-content::-webkit-scrollbar-thumb {
-    background: #999999; /* Цвет "пальца" скролла */
-    border-radius: 10px; /* Радиус скругления "пальца" */
+    background: #646464; /* Цвет "пальца" скролла */
+    border-radius: 10px; /* Радиус "пальца" */
   }
   
   .scrollable-content::-webkit-scrollbar-thumb:hover {
-    background: #999999; /* Цвет "пальца" при наведении */
+    background: #646464; /* Цвет "пальца" при наведении */
   }
   
   .scrollable-content::-webkit-scrollbar-thumb:active {
-    background: #999999; /* Цвет "пальца" при нажатии */
+    background: #919191; /* Цвет "пальца" при нажатии */
   }
   
