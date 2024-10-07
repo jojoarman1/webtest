@@ -13,6 +13,7 @@
   .scrollable-content::-webkit-scrollbar-track {
     background: #1C1D26; /* Цвет трека скролла */
     border-radius: 5px; /* Радиус трека */
+    width: 5px;
   }
   
   .scrollable-content::-webkit-scrollbar-thumb {
