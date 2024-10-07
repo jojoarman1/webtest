@@ -3,33 +3,31 @@
     overflow-y: auto; /* Стандартный скролл */
     border-radius: 5px; /* Радиус для всего скролла */
     padding-right: 5px; /* Добавьте немного внутреннего отступа справа для скролла */
-  }
-  
-  /* Кастомизация скролла */
-  .scrollable-content::-webkit-scrollbar {
-    width: 5px; /* Ширина скролла 919191  646464*/
-  }
-  
-  .scrollable-content::-webkit-scrollbar-track {
-    background: #1C1D26; /* Цвет трека скролла */
+}
+
+/* Кастомизация скролла */
+.scrollable-content::-webkit-scrollbar {
+    width: 5px; /* Ширина скролла */
+}
+
+/* Фон скролла */
+.scrollable-content::-webkit-scrollbar-track {
+    background: #1C1D26; /* Цвет фона скролла */
     border-radius: 5px; /* Радиус трека */
-    width: 5px;
-  }
-  
-  .scrollable-content::-webkit-scrollbar-thumb {
+}
+
+/* Цвет "пальца" скролла */
+.scrollable-content::-webkit-scrollbar-thumb {
     background: #646464; /* Цвет "пальца" скролла */
     border-radius: 5px; /* Радиус "пальца" */
-  }
-  
-  .scrollable-content::-webkit-scrollbar-thumb:hover {
+}
+
+/* Цвет "пальца" при наведении */
+.scrollable-content::-webkit-scrollbar-thumb:hover {
     background: #646464; /* Цвет "пальца" при наведении */
-    border-radius: 5px; /* Радиус "пальца" */
+}
 
-  }
-  
-  .scrollable-content::-webkit-scrollbar-thumb:active {
+/* Цвет "пальца" при нажатии */
+.scrollable-content::-webkit-scrollbar-thumb:active {
     background: #919191; /* Цвет "пальца" при нажатии */
-    border-radius: 5px; /* Радиус "пальца" */
-
-  }
-  
+}
