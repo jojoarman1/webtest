@@ -14,20 +14,24 @@
 .scrollable-content::-webkit-scrollbar-track {
     background: #1C1D26; /* Цвет фона скролла */
     border-radius: 5px; /* Радиус трека */
+    width: 5px; /* Ширина скролла */
 }
 
 /* Цвет "пальца" скролла */
 .scrollable-content::-webkit-scrollbar-thumb {
     background: #646464; /* Цвет "пальца" скролла */
     border-radius: 5px; /* Радиус "пальца" */
+    width: 5px; /* Ширина скролла */
 }
 
 /* Цвет "пальца" при наведении */
 .scrollable-content::-webkit-scrollbar-thumb:hover {
     background: #646464; /* Цвет "пальца" при наведении */
+    width: 5px; /* Ширина скролла */
 }
 
 /* Цвет "пальца" при нажатии */
 .scrollable-content::-webkit-scrollbar-thumb:active {
     background: #919191; /* Цвет "пальца" при нажатии */
+    width: 5px; /* Ширина скролла */
 }
