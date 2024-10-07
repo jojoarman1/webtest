@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import './scrollbar.css'; // Импорт кастомных стилей
+import './page.css'; // Импорт кастомных стилей
+
 import Farming from './Farming/Farming';
 import Footer from './Footer/Footer';
 import ButtonCard from './ButtonCard/ButtonCard';
@@ -94,19 +96,6 @@ export default function Home() {
   return (
     <div className="app" style={{ overflow: 'hidden' }}>
       <style jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        html, body, #root {
-          height: 100%;
-          background-color: black;
-          overflow: hidden;
-          outline: none;
-        }
-
         .app {
           background-color: black;
         }
