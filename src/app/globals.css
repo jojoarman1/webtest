@@ -1,17 +1,44 @@
+/* Подключаем шрифт SFProDisplay с различными стилями */
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('fonts/PlusJakartaSans-Regular.woff') format('woff2'),
-       url('fonts/PlusJakartaSans-Regular.woff2') format('woff');
+  font-family: 'SFProDisplay';
   font-weight: 400;
-  font-style: normal;
+  src: url('fonts/SFProDisplay-Regular.woff2') format('woff2'),
+       url('fonts/SFProDisplay-Regular.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  src: url('fonts/SFProDisplay-Bold.woff2') format('woff2'),
+       url('fonts/SFProDisplay-Bold.woff') format('woff');
+}
 
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  font-weight: 700; /* Задаем вес для жирного шрифта */
-  src: url('fonts/PlusJakartaSans-Bold.woff2') format('woff2'),
-       url('fonts/PlusJakartaSans-Bold.woff') format('woff');
+  font-family: 'SFProDisplay';
+  font-weight: 900;
+  src: url('fonts/SFProDisplay-Heavy.woff2') format('woff2'),
+       url('fonts/SFProDisplay-Heavy.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 300;
+  src: url('fonts/SFProDisplay-Light.woff2') format('woff2'),
+       url('fonts/SFProDisplay-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+  src: url('fonts/SFProDisplay-Medium.woff2') format('woff2'),
+       url('fonts/SFProDisplay-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  font-weight: 600;
+  src: url('fonts/SFProDisplay-Semibold.woff2') format('woff2'),
+       url('fonts/SFProDisplay-Semibold.woff') format('woff');
 }
 
 @tailwind base;
@@ -39,8 +66,9 @@ body {
   -webkit-font-smoothing: antialiased !important;
   text-rendering: optimizeLegibility;
   font-smooth: always;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'SFProDisplay', sans-serif;
   font-weight: 400; /* Установите вес шрифта по умолчанию */
+  border-radius: 0;
 }
 
 @layer utilities {
@@ -50,9 +78,9 @@ body {
 }
 
 img, svg {
-  user-select: none;       
+  user-select: none;
 }
 
 img {
-  -webkit-user-drag: none;  
+  -webkit-user-drag: none;
 }

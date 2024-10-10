@@ -1,148 +1,80 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion'; // Импортируем framer-motion
-import TopIconFaq from '../image/faq.svg';
-import TopIconHistory from '../image/history.svg';
+import TopIconHistory from '../image/history.svg'; // Импортируем SVG-иконку
 
-interface HeaderProps {
-  toggleSection: (section: string | null) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ toggleSection }) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [scaleFactor, setScaleFactor] = useState(1);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const screenWidth = window.innerWidth;
-      const baseWidth = 450;
-      const newScaleFactor = screenWidth < baseWidth ? screenWidth / baseWidth : 1;
-      setScaleFactor(newScaleFactor);
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const handleClick = (index: number | null, section: string) => {
-    setActiveIndex(index);
-    toggleSection(section);
-  };
-
-  // Определяем анимации для кнопок
-  const buttonVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: (index: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: index * 0.1, // Задержка для поочередного появления
-      },
-    }),
-  };
-
+const Header: React.FC = () => {
   return (
-    <motion.div
-      className="fixed top-0 left-0 right-0 flex justify-between items-center"
-      style={{
-        position: 'relative',
-        borderRadius: `${16 * scaleFactor}px`,
-        marginTop: `${25 * scaleFactor}px`,
-        padding: `0 ${25 * scaleFactor}px 0 ${25 * scaleFactor}px`,
-        transformOrigin: 'top',
-      }}
-      initial={{ opacity: 0, y: -20 }} // Начальное состояние
-      animate={{ opacity: 1, y: 0 }} // Анимированное состояние
-      transition={{ duration: 0.5 }} // Параметры анимации
+    <div
+    style={{
+      backgroundColor: '#252525', // Устанавливаем цвет фона
+      height: '80px', // Устанавливаем высоту
+      width: '100%',
+      display: 'flex', // Используем flexbox
+      alignItems: 'center', // Центрируем элементы по вертикали
+      padding: '10px 15px', // Отступы сверху и снизу по 10px, слева и справа по 15px
+      position: 'relative',
+      borderBottom: '1px solid #2C2C2E', // Добавляем нижнюю обводку шириной 1 пиксель
+    }}
+    
     >
+      {/* Обводка для круга */}
+      <div
+        style={{
+          width: '60px', // Ширина обводки (40px + 2*stroke)
+          height: '60px', // Высота обводки (40px + 2*stroke)
+          borderRadius: '50%', // Округляем углы
+          border: '2px solid #8B3CF7', // Обводка
+          display: 'flex', // Используем flexbox для центрирования круга
+          justifyContent: 'center', // Центрируем круг по горизонтали
+          alignItems: 'center', // Центрируем круг по вертикали
+          marginRight: '15px', // Отступ справа от обводки
+        }}
+      >
+        {/* Серый круг */}
+        <div
+          style={{
+            width: '50px', // Ширина круга
+            height: '50px', // Высота круга
+            backgroundColor: '#8B3CF7', // Цвет круга
+            borderRadius: '50%', // Округляем углы
+          }}
+        />
+      </div>
+      {/* Текст рядом с кружком */}
+      <span
+        style={{
+          fontSize: '16px', // Размер шрифта
+          color: '#FFF', // Цвет текста (можете изменить на нужный)
+          marginRight: '10px', // Отступ справа от текста
+          fontWeight: 500, // Устанавливаем Medium (500) вес шрифта
+        }}
+      >
+        Ducky Johny
+      </span>
+
       <motion.div
         style={{
-          width: `${60 * scaleFactor}px`,
-          height: `${60 * scaleFactor}px`,
-          borderRadius: '50%',
-          backgroundColor: '#131214',
-          color: '#fff',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: `${14 * scaleFactor}px`,
-          fontWeight: 'bold',
-          cursor: 'pointer',
+          flexGrow: 1, // Занимаем оставшееся пространство
+          display: 'flex', // Используем flexbox
+          justifyContent: 'flex-end', // Выравниваем элементы по правому краю
         }}
-        onClick={() => handleClick(-1, 'account')} // Используем -1 вместо null
-        variants={buttonVariants}
-        initial="hidden"
-        animate="visible"
-        custom={0} // Индекс для анимации
+        initial={{ opacity: 0 }} // Начальное состояние анимации
+        animate={{ opacity: 1 }} // Анимированное состояние
+        transition={{ duration: 0.5 }} // Параметры анимации
       >
-        jj
+        <Image
+          src={TopIconHistory} // Используем импортированную SVG-иконку
+          alt="Icon" // Альтернативный текст для иконки
+          width={30} // Ширина иконки
+          height={30} // Высота иконки
+          style={{ marginLeft: '10px' }} // Отступ слева от иконки
+        />
+        {/* Здесь можно добавить другие элементы или оставить пустым */}
       </motion.div>
-
-      <div className="flex">
-        <motion.button
-          className="flex items-center justify-center"
-          onClick={() => handleClick(0, 'faq')}
-          variants={buttonVariants}
-          initial="hidden"
-          animate="visible"
-          custom={1} // Передаём индекс для анимации
-          style={{
-            ...buttonStyle,
-            width: `${60 * scaleFactor}px`,
-            height: `${60 * scaleFactor}px`,
-            borderRadius: `${16 * scaleFactor}px`,
-          }}
-        >
-          <Image
-            src={TopIconFaq}
-            alt="FAQ Icon"
-            width={30 * scaleFactor}
-            height={30 * scaleFactor}
-            style={{
-              filter: activeIndex === 0 ? 'invert(40%) sepia(100%) saturate(1000%) hue-rotate(135deg)' : 'none',
-            }}
-          />
-        </motion.button>
-
-        <motion.button
-          className="flex items-center justify-center ml-2"
-          onClick={() => handleClick(1, 'history')}
-          variants={buttonVariants}
-          initial="hidden"
-          animate="visible"
-          custom={2} // Передаём индекс для анимации
-          style={{
-            ...buttonStyle,
-            width: `${60 * scaleFactor}px`,
-            height: `${60 * scaleFactor}px`,
-            borderRadius: `${16 * scaleFactor}px`,
-          }}
-        >
-          <Image
-            src={TopIconHistory}
-            alt="History Icon"
-            width={30 * scaleFactor}
-            height={30 * scaleFactor}
-            style={{
-              filter: activeIndex === 1 ? 'invert(40%) sepia(100%) saturate(1000%) hue-rotate(135deg)' : 'none',
-            }}
-          />
-        </motion.button>
-      </div>
-    </motion.div>
+    </div>
   );
-};
-
-const buttonStyle = {
-  backgroundColor: '#131214',
-  border: 'none',
-  cursor: 'pointer',
 };
 
 export default Header;

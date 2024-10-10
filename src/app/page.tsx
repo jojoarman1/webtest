@@ -84,7 +84,7 @@ export default function Home() {
       sections[activeSection]
     ) : (
       <div className="centered-card">
-        <Header toggleSection={toggleSection} />
+        <Header/>
         <ButtonCard toggleSection={toggleSection} />
         <CardBlock />
       </div>
@@ -96,18 +96,13 @@ export default function Home() {
   return (
     <div className="app" style={{ overflow: 'hidden' }}>
       <style jsx>{`
-        .app {
-          background-color: black;
-        }
-
         .scrollable-content {
           height: calc(100vh - ${isFarmingVisible ? 220 * scaleFactor : 110 * scaleFactor}px);
           overflow-y: auto; /* Стандартный скролл */
         }
 
         .farming-container {
-          background-color: black;
-          margin-top: ${25 * scaleFactor}px;
+          margin-top: ${40 * scaleFactor}px;
         }
       `}</style>
 

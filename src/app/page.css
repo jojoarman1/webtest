@@ -8,7 +8,7 @@
 /* Убираем обводку при фокусе */
 html, body, #root {
   height: 100%;
-  background: black;
+  background: #1C1C1C;
   overflow: hidden; /* Убираем прокрутку у body */
   outline: none; /* Убираем обводку при фокусе */
 }

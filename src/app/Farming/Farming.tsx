@@ -29,13 +29,13 @@ const Farming: React.FC = () => {
     transition={{ duration: 0.3 }}
     className="relative flex items-center justify-center"
     style={{
-      backgroundColor: '#131214',
-      borderRadius: `${16 * scaleFactor}px`, // Скругление углов с учетом масштаба
+      backgroundColor: '#2C2C2E',
+      borderRadius: `${10 * scaleFactor}px`, // Скругление углов с учетом масштаба
       height: `${60 * scaleFactor}px`, // Высота с учетом масштаба
       marginTop: 'auto',
-      marginBottom: `${25 * scaleFactor}px`, // Динамический нижний отступ
-      marginLeft: `${25 * scaleFactor}px`, // Динамический нижний отступ
-      marginRight: `${25 * scaleFactor}px`, // Динамический нижний отступ
+      marginBottom: `${10 * scaleFactor}px`, // Динамический нижний отступ
+      marginLeft: `${15 * scaleFactor}px`, // Динамический нижний отступ
+      marginRight: `${15 * scaleFactor}px`, // Динамический нижний отступ
       position: 'relative',
       transform: `scale(${scaleFactor})`, // Масштабирование
       transformOrigin: 'top', // Точка масштабирования
@@ -47,6 +47,7 @@ const Farming: React.FC = () => {
           style={{
             fontSize: `${16 * scaleFactor}px`, // Размер текста с учетом масштаба
             marginRight: `${5 * scaleFactor}px`,
+            fontWeight: '600'
           }}
         >
           Farming
@@ -56,15 +57,18 @@ const Farming: React.FC = () => {
           style={{
             fontSize: `${16 * scaleFactor}px`,
             color: '#21D589',
-            marginRight: `${10 * scaleFactor}px`,
+            marginRight: `${5 * scaleFactor}px`,
+            fontWeight: '600'
           }}
         >
-          $B
+          ₿
         </span>
         <span
           className="text-white"
           style={{
             fontSize: `${16 * scaleFactor}px`,
+            fontWeight: '600'
+
           }}
         >
           23.248
@@ -74,10 +78,10 @@ const Farming: React.FC = () => {
       <span
         className="text-white"
         style={{
-          fontSize: `${11 * scaleFactor}px`, // Размер текста времени с учетом масштаба
+          fontSize: `${10 * scaleFactor}px`, // Размер текста времени с учетом масштаба
           position: 'absolute',
-          right: `${20 * scaleFactor}px`, // Отступ справа с учетом масштаба
-          margin: `${20 * scaleFactor}px`, // Отступ справа с учетом масштаба
+          right: `${15 * scaleFactor}px`, // Отступ справа с учетом масштаба
+          fontWeight: '500'
         }}
       >
         05h 03m

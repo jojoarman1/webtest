@@ -132,15 +132,15 @@ const CardBlock: React.FC = () => {
   const styles = {
     container: {
       perspective: '1000px',
-      paddingLeft: `${25 * scaleFactor}px`,
-      paddingRight: `${25 * scaleFactor}px`,
+      paddingLeft: `${15 * scaleFactor}px`,
+      paddingRight: `${15 * scaleFactor}px`,
       boxSizing: 'border-box',
     } as React.CSSProperties,
     card: {
-      borderRadius: `${16 * scaleFactor}px`,
+      borderRadius: `${10 * scaleFactor}px`,
       height: `${250 * scaleFactor}px`,
       width: `100%`,
-      maxWidth: `${400 * scaleFactor}px`,
+      maxWidth: `${420 * scaleFactor}px`,
       position: 'relative',
       transition: isMouseDown 
         ? 'transform 0.2s ease-out, box-shadow 0.2s ease-out' 
@@ -152,23 +152,26 @@ const CardBlock: React.FC = () => {
       margin: '0 auto', // Центрируем карту по горизонтали
     } as React.CSSProperties,
     face: {
-      borderRadius: `${16 * scaleFactor}px`,
+      borderRadius: `${10 * scaleFactor}px`,
       position: 'absolute',
       width: '100%',
       height: '100%',
       backfaceVisibility: 'hidden',
       display: 'flex',
-      justifyContent: 'center',
+      flexDirection: 'column', // Изменено на 'column' для вертикального расположения
+      justifyContent: 'space-between', // Изменено для равномерного распределения пространства
       alignItems: 'center',
-      fontSize: `${25 * scaleFactor}px`,
+      fontSize: `${28 * scaleFactor}px`,
+      fontWeight: '700',
       color: 'white',
       cursor: 'pointer',
+      padding: '20px',
     } as React.CSSProperties,
     front: {
-      backgroundColor: '#131214',
+      backgroundColor: '#2C2C2C',
     } as React.CSSProperties,
     back: {
-      backgroundColor: '#0C0C0C',
+      backgroundColor: '#2C2C2C',
       transform: 'rotateY(180deg)',
     } as React.CSSProperties,
     button: {
@@ -179,11 +182,11 @@ const CardBlock: React.FC = () => {
       fontSize: `${14 * scaleFactor}px`,
       border: 'none',
       borderRadius: '5px',
-      padding: '10px',
+      fontWeight: '600'
     } as React.CSSProperties,
   };
   
-
+  
   const handleRotate = () => {
     setRotation(prevRotation => prevRotation + 180);
   };
@@ -204,18 +207,46 @@ const CardBlock: React.FC = () => {
             onMouseDown={handleMouseDown}
             onTouchStart={handleTouchStart}
           >
-            <h1>Передняя сторона</h1>
+            <div style={{ textAlign: 'left', width: '100%' }}>
+              <h1 style={{ marginBottom: '5px', fontSize: '28px', fontWeight: 'bold' }}>Jojoarmany</h1>
+              <div style={{ backgroundColor: '#313131', width: '300px', height: '50px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', borderRadius: '10px', paddingLeft: '10px' }}>
+                <h2 style={{ margin: '0', fontSize: '17px', fontWeight: '400' }}>
+                  <span style={{ color: '#34C759' }}>₿</span> <span style={{ color: 'white' }}>1 000 000 000</span>
+                </h2>
+              </div>
+            </div>
+            <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', marginTop: 'auto' }}>
+              <h2 style={{ fontSize: '16px', fontWeight: '700', margin: '0' }}>Platinum</h2>
+              <h2 style={{ fontSize: '16px', fontWeight: '700', margin: '0' }}>
+                <span style={{ color: '#368CCC' }}>Ton</span>
+                <span style={{ color: 'white' }}>Bank</span>
+              </h2>
+            </div>
           </div>
           <div style={{ ...styles.face, ...styles.back }}>
-            <h1>Задняя сторона</h1>
+            <div style={{ textAlign: 'left', width: '100%' }}>
+              <h1 style={{ margin: '0', fontSize: '28px', fontWeight: 'bold' }}>Card number</h1>
+              <div style={{ backgroundColor: '#313131', width: '300px', height: '50px', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', borderRadius: '10px', paddingLeft: '10px', marginTop: '10px' }}>
+                <h2 style={{ margin: '0', fontSize: '17px', fontWeight: '400' }}>1111 2222 3333 4444</h2>
+              </div>
+            </div>
           </div>
         </div>
-        <button style={styles.button} onClick={handleRotate}>
-          Перевернуть карту
-        </button>
       </div>
+      <button 
+        style={styles.button} 
+        onClick={handleRotate}
+      >
+        Turn a bank card
+      </button>
     </div>
   );
+  
+  
+  
+  
+  
+  
 };
 
 export default CardBlock;
